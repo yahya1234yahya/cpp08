@@ -4,6 +4,7 @@
 #include <vector>
 #include <stdexcept>
 #include <algorithm>
+#include <iterator>
 
 class Span
 {
@@ -25,14 +26,27 @@ class Span
         template <typename it>
         void addMulti(it start, it end)
         {
-            
+            int count = std::distance(start , end);
+            if (count < 0)
+            {
+                throw std::runtime_error("error");
+            }
+            if (static_cast<unsigned int>(count) <= size_value - container.size())
+            {
+                container.insert(container.begin(),start, end);
+            }
+            else
+            {
+                int remain = size_value - container.size();
+                if (remain == 0)
+                {
+                    throw std::runtime_error("range is full");
+                }
+                container.insert(container.begin(),start,  start + remain);
+                throw std::runtime_error("cannot add it fully");
+            }
         }
 };
-
-// todo 
-// add the addMulti template
-// add main()
-
 
 
 #endif

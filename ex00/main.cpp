@@ -10,6 +10,17 @@ int main()
     try
     {
         easyfind(vContainer, 8);
+        std::cout << "value is found \n";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    try
+    {
+        easyfind(vContainer, 5);
+        std::cout << "value is found \n";
     }
     catch(const std::exception& e)
     {

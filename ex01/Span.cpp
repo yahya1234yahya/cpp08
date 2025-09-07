@@ -63,7 +63,7 @@ unsigned long Span::longestSpan() const
     int min = *std::min_element(container.begin(), container.end());
     int max = *std::max_element(container.begin(), container.end());
 
-    return (static_cast<unsigned long>(max) - min)
+    return (static_cast<unsigned long>(max) - min);
 
 }
 
